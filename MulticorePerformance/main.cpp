@@ -79,6 +79,8 @@ void saveInFile(int sizeVetor, double media ,double dp_inf, double dp_sup, strin
     out.close();
 }
 
+
+
 /*Valores aleatórios entre -1 e 1*/
 double initVetor(){
     auto t1 = std::chrono::high_resolution_clock::now();
@@ -342,24 +344,131 @@ int main(int argc, char *argv[]){
 	// Apaga os arquivos da execução anterior
 	clearFiles();
 
+    // Quantidade de cores do computador
     unsigned int n = thread::hardware_concurrency();
     cout << "Minha CPU possui " << n << " núcleos\n";
     cout << "--------------------------------------" << "\n";
+
     cout << "Tempo de Criação do Vetor: " << initVetor() << "\n";
     cout << "--------------------------------------" << "\n";
-    cout << "Analise 1 - Função 1: " << analise1_1() << "\n";
-    cout << "Analise 1 - Função 2: " << analise1_2() << "\n";
-    cout << "Analise 1 - Função 3: " << analise1_3() << "\n";
+
+    // Aux
+    double value;
+    string path;
+
+    ofstream out;
+
+    value = analise1_1();
+    cout << "Analise 1 - Função 1: " << value << "\n";
+    path = ANALISE_1_1;
+    out.open(path, ios::app);
+    out << TAMANHO_VETOR << " " << value << endl;
+    out.close();
+
+    value = analise1_2();
+    cout << "Analise 1 - Função 2: " << value << "\n";
+    path = ANALISE_1_2;
+    out.open(path, ios::app);
+    out << TAMANHO_VETOR << " " << value << endl;
+    out.close();
+
+    value = analise1_3();
+    cout << "Analise 1 - Função 3: " << value << "\n";
+    path = ANALISE_1_3;
+    out.open(path, ios::app);
+    out << TAMANHO_VETOR << " " << value << endl;
+    out.close();
+
     cout << "--------------------------------------" << "\n";
-    cout << "Analise 2 - Função 1: " << analise2_1() << "\n";
-    cout << "Analise 2 - Função 2: " << analise2_2() << "\n";
-    cout << "Analise 2 - Função 3: " << analise2_3() << "\n";
+
+    value = analise2_1();
+    cout << "Analise 2 - Função 1: " << value << "\n";
+    path = ANALISE_2_1;
+    out.open(path, ios::app);
+    out << TAMANHO_VETOR << " " << value << endl;
+    out.close();
+
+    value = analise2_2();
+    cout << "Analise 2 - Função 2: " << value << "\n";
+    path = ANALISE_2_2;
+    out.open(path, ios::app);
+    out << TAMANHO_VETOR << " " << value << endl;
+    out.close();
+
+    value = analise2_3();
+    cout << "Analise 2 - Função 3: " << value << "\n";
+    path = ANALISE_2_3;
+    out.open(path, ios::app);
+    out << TAMANHO_VETOR << " " << value << endl;
+    out.close();
+
     cout << "--------------------------------------" << "\n";
-    cout << "Analise 3 - Função 1: " << analise3_1() << "\n";
-    cout << "Analise 3 - Função 2: " << analise3_2() << "\n";
-    cout << "Analise 3 - Função 3: " << analise3_3() << "\n";
+
+    value = analise3_1();
+    cout << "Analise 3 - Função 1: " << value << "\n";
+    path = ANALISE_3_1;
+    out.open(path, ios::app);
+    out << TAMANHO_VETOR << " " << value << endl;
+    out.close();
+
+    value = analise3_2();
+    cout << "Analise 3 - Função 2: " << value << "\n";
+    path = ANALISE_3_2;
+    out.open(path, ios::app);
+    out << TAMANHO_VETOR << " " << value << endl;
+    out.close();
+
+    value = analise3_3();
+    cout << "Analise 3 - Função 3: " << value << "\n";
+    path = ANALISE_3_3;
+    out.open(path, ios::app);
+    out << TAMANHO_VETOR << " " << value << endl;
+    out.close();
+
+    // -------------------------------------------------------------------- //
 
 
+    string script_gnuplot_dp = "set encoding iso_8859_1 \n"
+                                "set grid \n"
+                                "set key top left \n"
+                                "set title 'Análise de desempenho com a função Clock' \n"
+                                "set xlabel 'Tamanho do vetor' \n"
+                                "set ylabel 'Tempo (segundos)' \n"
+                                "# Analise 1.1 \n"
+                                "plot 'analise1_1.dat' using 1:2 notitle with linespoints ls 1 lt 8 \n"
+                                "rep 'analise1_1.dat' using 1:2:3:4 t 'Analise 1.1' with yerrorbars ls 1 lt 8 \n"
+                                "# Analise 1.2 \n"
+                                "plot 'analise1_2.dat' using 1:2 notitle with linespoints ls 1 lt 8 \n"
+                                "rep 'analise1_2.dat' using 1:2:3:4 t 'Analise 1.2' with yerrorbars ls 1 lt 8 \n"
+                                "# Analise 1.3 \n"
+                                "plot 'analise1_3.dat' using 1:2 notitle with linespoints ls 1 lt 8 \n"
+                                "rep 'analise1_3.dat' using 1:2:3:4 t 'Analise 1.3' with yerrorbars ls 1 lt 8 \n"
+                                "# Analise 2.1 \n"
+                                "plot 'analise2_1.dat' using 1:2 notitle with linespoints ls 1 lt 8 \n"
+                                "rep 'analise2_1.dat' using 1:2:3:4 t 'Analise 2.1' with yerrorbars ls 1 lt 8 \n"
+                                "# Analise 2.2 \n"
+                                "plot 'analise2_2.dat' using 1:2 notitle with linespoints ls 1 lt 8 \n"
+                                "rep 'analise2_2.dat' using 1:2:3:4 t 'Analise 2.2' with yerrorbars ls 1 lt 8 \n"
+                                "# Analise 2.3 \n"
+                                "plot 'analise2_3.dat' using 1:2 notitle with linespoints ls 1 lt 8 \n"
+                                "rep 'analise2_3.dat' using 1:2:3:4 t 'Analise 2.3' with yerrorbars ls 1 lt 8 \n"
+                                "# Analise 3.1 \n"
+                                "plot 'analise3_1.dat' using 1:2 notitle with linespoints ls 1 lt 8 \n"
+                                "rep 'analise3_1.dat' using 1:2:3:4 t 'Analise 3.1' with yerrorbars ls 1 lt 8 \n"
+                                "# Analise 3.2 \n"
+                                "plot 'analise3_2.dat' using 1:2 notitle with linespoints ls 1 lt 8 \n"
+                                "rep 'analise3_2.dat' using 1:2:3:4 t 'Analise 3.2' with yerrorbars ls 1 lt 8 \n"
+                                "# Analise 3.3 \n"
+                                "plot 'analise3_3.dat' using 1:2 notitle with linespoints ls 1 lt 8 \n"
+                                "rep 'analise3_3.dat' using 1:2:3:4 t 'Analise 3.3' with yerrorbars ls 1 lt 8 \n"
+                                "set terminal png \n"
+                                "set output 'grafico.png' \n"
+                                "replot \n";
+
+
+    saveInFile(script_gnuplot_dp, "dados-coletados/script_gnuplot.gnu");
+
+    system("cd dados-coletados && gnuplot script_gnuplot.gnu");
 
     return 0;
 }
