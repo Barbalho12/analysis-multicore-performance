@@ -341,6 +341,7 @@ double analise3_3(){
 
 
 int main(int argc, char *argv[]){
+    system("mkdir dados-coletados");
 	// Apaga os arquivos da execução anterior
 	clearFiles();
 
