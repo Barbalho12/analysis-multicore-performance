@@ -5,6 +5,7 @@
 #include <sched.h>
 #include <math.h>       /* sin */
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 #define NUMTHREADS 4
@@ -13,6 +14,70 @@ using namespace std;
 /*Criar um vetor float com 100*1000*1000 (100M) elementos*/
 float vetor [TAMANHO_VETOR];
 
+#define ANALISE_1_1 "dados-coletados/analise1_1.dat"
+#define ANALISE_1_2 "dados-coletados/analise1_2.dat"
+#define ANALISE_1_3 "dados-coletados/analise1_3.dat"
+#define ANALISE_2_1 "dados-coletados/analise2_1.dat"
+#define ANALISE_2_2 "dados-coletados/analise2_2.dat"
+#define ANALISE_2_3 "dados-coletados/analise2_3.dat"
+#define ANALISE_3_1 "dados-coletados/analise3_1.dat"
+#define ANALISE_3_2 "dados-coletados/analise3_2.dat"
+#define ANALISE_3_3 "dados-coletados/analise3_3.dat"
+
+/**
+ * Apaga os arquivos da execução anterior, caso existam.
+ */
+void clearFiles() {
+
+    const string files[] = {ANALISE_1_1, ANALISE_1_2, ANALISE_1_3,
+                    ANALISE_2_1, ANALISE_2_2, ANALISE_2_3,
+                    ANALISE_3_1, ANALISE_3_2, ANALISE_3_3};
+
+    for (int i = 0; i < 6; i++){
+        ofstream init;
+        // Abre o arquivo
+        init.open(files[i], ios_base::in);
+        // Verifica se o arquivo existe
+        if (init) {
+            // Fecha o arquivo
+            init.close();
+            if( files[i] == ANALISE_1_1){
+                remove(ANALISE_1_1);
+            }else if( files[i] == ANALISE_1_2){
+                remove(ANALISE_1_2);
+            }else if( files[i] == ANALISE_1_3){
+                remove(ANALISE_1_3);
+            }else if( files[i] == ANALISE_2_1){
+                remove(ANALISE_2_1);
+            }else if( files[i] == ANALISE_2_2){
+                remove(ANALISE_2_2);
+            }else if( files[i] == ANALISE_2_3){
+                remove(ANALISE_2_3);
+            }else if( files[i] == ANALISE_3_1){
+                remove(ANALISE_3_1);
+            }else if( files[i] == ANALISE_3_2){
+                remove(ANALISE_3_2);
+            }else if( files[i] == ANALISE_3_3){
+                remove(ANALISE_3_3);
+            }
+
+        }
+    }
+}
+
+void saveInFile(string content, string path){
+    ofstream out;
+    out.open(path, ios::app);
+    out << content << endl;
+    out.close();
+}
+
+void saveInFile(int sizeVetor, double media ,double dp_inf, double dp_sup, string path){
+    ofstream out;
+    out.open(path, ios::app);
+    out << sizeVetor << " " << media << " " << dp_inf << " " << dp_sup << endl;
+    out.close();
+}
 
 /*Valores aleatórios entre -1 e 1*/
 double initVetor(){
@@ -274,6 +339,9 @@ double analise3_3(){
 
 
 int main(int argc, char *argv[]){
+	// Apaga os arquivos da execução anterior
+	clearFiles();
+
     unsigned int n = thread::hardware_concurrency();
     cout << "Minha CPU possui " << n << " núcleos\n";
     cout << "--------------------------------------" << "\n";
@@ -295,4 +363,3 @@ int main(int argc, char *argv[]){
 
     return 0;
 }
-
