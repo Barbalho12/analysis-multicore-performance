@@ -46,10 +46,11 @@ de para cada uma das análises:
 
 ![f1](MulticorePerformance/dados-coletados/f1.png?raw=true "Análises da Função 1")
 
-![f2](MulticorePerformance/dados-coletados/f1.png?raw=true "Análises da Função 2")
+![f2](MulticorePerformance/dados-coletados/f2.png?raw=true "Análises da Função 2")
 
-![f3](MulticorePerformance/dados-coletados/f1.png?raw=true "Análises da Função 3")
+![f3](MulticorePerformance/dados-coletados/f3.png?raw=true "Análises da Função 3")
 
+![log](log.png?raw=true "Log de Eventos")
 
 ##7. Conclusão ##
 
