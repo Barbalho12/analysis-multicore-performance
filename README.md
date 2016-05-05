@@ -1,4 +1,4 @@
-# analysis-multicore-performance #
+# Analysis multicore performance #
 
 Este projeto tem como objetivo de analisar o desempenho do ALGORITMO em relação a afinidade de CPU.
 O testes serão feitos utilizando a execução normal do algoritmo e a exercução limitando a quantidade de 
@@ -6,7 +6,12 @@ CPUs que o programa irá poder utilizar.
 
 ## Índice ##
 
-
+1. Requisitos para fazer a análise
+2. Gnuplot Tutorial
+3. Resultados
+4. Conclusão
+5. Membros
+6. Fontes
 
 ## 1. Requisitos para fazer a análise ##
 
@@ -32,7 +37,7 @@ Para criar os gráficos basta executar o gnuplot utilizando o script gnuplot des
 
 	gnuplot performance.gnuplot
 
-##6. Resultados ##
+##3. Resultados ##
 
 Nessa seção, temos os resultados dos testes dos algoritmos BubbleSort, QuickSort e MergeSort.
 
@@ -52,12 +57,16 @@ de para cada uma das análises:
 
 ![log](log.png?raw=true "Log de Eventos")
 
-##7. Conclusão ##
+## 4. Conclusão ##
 
 
-## . Membros ##
+
+## 5. Membros ##
 
 * Breno Maurício de Freitas Viana
 * Felipe Barbalho Rocha
 
-## . Fontes ##
+## 6. Fontes ##
+
+* [Usando Gnuplot para gerar bons gráficos](http://www.dicas-l.com.br/arquivo/usando_gnuplot_para_gerar_bons_graficos.php)
+* [Gnuplot - Manual simplificado para iniciantes](http://www.ebah.com.br/content/ABAAAgUS4AF/gnuplot-manual-simplificado-iniciantes?part=1)
