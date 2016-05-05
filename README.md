@@ -72,9 +72,9 @@ de para cada uma das análises:
 
 ## 4. Conclusão ##
 
-Concluímos que .
+Esse trabalho apresentou uma análise de eficiência das diferentes possibilidades de execução de um programa em ambientes multicore que o hardware oferece.  
 
-Como podemos notar nos gráficos .
+Como podemos notar nos gráficos, ao se usar dois núcleos executando duas intâncias da mesma função, cada uma em uma thread, o tempo de execução cai pela metade. 
 
 Portanto .
 
