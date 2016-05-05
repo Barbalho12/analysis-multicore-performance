@@ -10,10 +10,23 @@ CPUs que o programa irá poder utilizar.
 2. Gnuplot Tutorial
 3. Resultados
 4. Conclusão
+	4. Instalar o gnuplot
+	4. Gerando o gráfico
 5. Membros
 6. Fontes
 
 ## 1. Requisitos para fazer a análise ##
+
+* Use um computador com alguma distribuição Linux (Indicamos o Ubuntu).
+* Instale os seguintes pacotes para atualizar o C++.
+
+		sudo apt-get install gcc-5-multilib g++-5-multilib
+
+* [Baixe](http://goo.gl/q8zaor) e instale o SDK Texas Instruments e instale usando os comandos a seguir e avance todas as opções clicando em "Next".
+
+		chmod +x nomedoarquivobaixado
+
+		./nomedoarquivobaixado
 
 ## 2. Gnuplot Tutorial ##
 
@@ -59,7 +72,11 @@ de para cada uma das análises:
 
 ## 4. Conclusão ##
 
+Concluímos que .
 
+Como podemos notar nos gráficos .
+
+Portanto .
 
 ## 5. Membros ##
 
