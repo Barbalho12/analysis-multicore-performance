@@ -14,56 +14,51 @@ using namespace std;
 /*Criar um vetor float com 100*1000*1000 (100M) elementos*/
 float vetor [TAMANHO_VETOR];
 
-#define ANALISE_1_1 "dados-coletados/analise1_1.dat"
-#define ANALISE_1_2 "dados-coletados/analise1_2.dat"
-#define ANALISE_1_3 "dados-coletados/analise1_3.dat"
-#define ANALISE_2_1 "dados-coletados/analise2_1.dat"
-#define ANALISE_2_2 "dados-coletados/analise2_2.dat"
-#define ANALISE_2_3 "dados-coletados/analise2_3.dat"
-#define ANALISE_3_1 "dados-coletados/analise3_1.dat"
-#define ANALISE_3_2 "dados-coletados/analise3_2.dat"
-#define ANALISE_3_3 "dados-coletados/analise3_3.dat"
+#define FUNCAO1 "dados-coletados/func1.dat"
+#define FUNCAO2 "dados-coletados/func2.dat"
+#define FUNCAO3 "dados-coletados/func3.dat"
+
 
 /**
  * Apaga os arquivos da execução anterior, caso existam.
  */
-void clearFiles() {
+//void clearFiles() {
 
-    const string files[] = {ANALISE_1_1, ANALISE_1_2, ANALISE_1_3,
-                    ANALISE_2_1, ANALISE_2_2, ANALISE_2_3,
-                    ANALISE_3_1, ANALISE_3_2, ANALISE_3_3};
+//    const string files[] = {ANALISE_1_1, ANALISE_1_2, ANALISE_1_3,
+//                    ANALISE_2_1, ANALISE_2_2, ANALISE_2_3,
+//                    ANALISE_3_1, ANALISE_3_2, ANALISE_3_3};
 
-    for (int i = 0; i < 6; i++){
-        ofstream init;
-        // Abre o arquivo
-        init.open(files[i], ios_base::in);
-        // Verifica se o arquivo existe
-        if (init) {
-            // Fecha o arquivo
-            init.close();
-            if( files[i] == ANALISE_1_1){
-                remove(ANALISE_1_1);
-            }else if( files[i] == ANALISE_1_2){
-                remove(ANALISE_1_2);
-            }else if( files[i] == ANALISE_1_3){
-                remove(ANALISE_1_3);
-            }else if( files[i] == ANALISE_2_1){
-                remove(ANALISE_2_1);
-            }else if( files[i] == ANALISE_2_2){
-                remove(ANALISE_2_2);
-            }else if( files[i] == ANALISE_2_3){
-                remove(ANALISE_2_3);
-            }else if( files[i] == ANALISE_3_1){
-                remove(ANALISE_3_1);
-            }else if( files[i] == ANALISE_3_2){
-                remove(ANALISE_3_2);
-            }else if( files[i] == ANALISE_3_3){
-                remove(ANALISE_3_3);
-            }
+//    for (int i = 0; i < 6; i++){
+//        ofstream init;
+//        // Abre o arquivo
+//        init.open(files[i], ios_base::in);
+//        // Verifica se o arquivo existe
+//        if (init) {
+//            // Fecha o arquivo
+//            init.close();
+//            if( files[i] == ANALISE_1_1){
+//                remove(ANALISE_1_1);
+//            }else if( files[i] == ANALISE_1_2){
+//                remove(ANALISE_1_2);
+//            }else if( files[i] == ANALISE_1_3){
+//                remove(ANALISE_1_3);
+//            }else if( files[i] == ANALISE_2_1){
+//                remove(ANALISE_2_1);
+//            }else if( files[i] == ANALISE_2_2){
+//                remove(ANALISE_2_2);
+//            }else if( files[i] == ANALISE_2_3){
+//                remove(ANALISE_2_3);
+//            }else if( files[i] == ANALISE_3_1){
+//                remove(ANALISE_3_1);
+//            }else if( files[i] == ANALISE_3_2){
+//                remove(ANALISE_3_2);
+//            }else if( files[i] == ANALISE_3_3){
+//                remove(ANALISE_3_3);
+//            }
 
-        }
-    }
-}
+//        }
+//    }
+//}
 
 void saveInFile(string content, string path){
     ofstream out;
@@ -72,10 +67,10 @@ void saveInFile(string content, string path){
     out.close();
 }
 
-void saveInFile(int sizeVetor, double media ,double dp_inf, double dp_sup, string path){
+void saveInFile(int analise, double time, string path){
     ofstream out;
     out.open(path, ios::app);
-    out << sizeVetor << " " << media << " " << dp_inf << " " << dp_sup << endl;
+    out <<  analise << " " << time << endl;
     out.close();
 }
 
@@ -341,9 +336,9 @@ double analise3_3(){
 
 
 int main(int argc, char *argv[]){
-    system("mkdir dados-coletados");
+    system("rm -rf dados-coletados && mkdir dados-coletados");
 	// Apaga os arquivos da execução anterior
-	clearFiles();
+    //clearFiles();
 
     // Quantidade de cores do computador
     unsigned int n = thread::hardware_concurrency();
@@ -361,109 +356,72 @@ int main(int argc, char *argv[]){
 
     value = analise1_1();
     cout << "Analise 1 - Função 1: " << value << "\n";
-    path = ANALISE_1_1;
-    out.open(path, ios::app);
-    out << TAMANHO_VETOR << " " << value << endl;
-    out.close();
-
-    value = analise1_2();
-    cout << "Analise 1 - Função 2: " << value << "\n";
-    path = ANALISE_1_2;
-    out.open(path, ios::app);
-    out << TAMANHO_VETOR << " " << value << endl;
-    out.close();
-
-    value = analise1_3();
-    cout << "Analise 1 - Função 3: " << value << "\n";
-    path = ANALISE_1_3;
-    out.open(path, ios::app);
-    out << TAMANHO_VETOR << " " << value << endl;
-    out.close();
-
-    cout << "--------------------------------------" << "\n";
+    saveInFile(1, value, FUNCAO1);
 
     value = analise2_1();
     cout << "Analise 2 - Função 1: " << value << "\n";
-    path = ANALISE_2_1;
-    out.open(path, ios::app);
-    out << TAMANHO_VETOR << " " << value << endl;
-    out.close();
-
-    value = analise2_2();
-    cout << "Analise 2 - Função 2: " << value << "\n";
-    path = ANALISE_2_2;
-    out.open(path, ios::app);
-    out << TAMANHO_VETOR << " " << value << endl;
-    out.close();
-
-    value = analise2_3();
-    cout << "Analise 2 - Função 3: " << value << "\n";
-    path = ANALISE_2_3;
-    out.open(path, ios::app);
-    out << TAMANHO_VETOR << " " << value << endl;
-    out.close();
-
-    cout << "--------------------------------------" << "\n";
+    saveInFile(2, value, FUNCAO1);
 
     value = analise3_1();
     cout << "Analise 3 - Função 1: " << value << "\n";
-    path = ANALISE_3_1;
-    out.open(path, ios::app);
-    out << TAMANHO_VETOR << " " << value << endl;
-    out.close();
+    saveInFile(3, value, FUNCAO1);
+
+    cout << "--------------------------------------" << "\n";
+
+    value = analise1_2();
+    cout << "Analise 1 - Função 2: " << value << "\n";
+    saveInFile(1, value, FUNCAO2);
+
+    value = analise2_2();
+    cout << "Analise 2 - Função 2: " << value << "\n";
+    saveInFile(2, value, FUNCAO2);
 
     value = analise3_2();
     cout << "Analise 3 - Função 2: " << value << "\n";
-    path = ANALISE_3_2;
-    out.open(path, ios::app);
-    out << TAMANHO_VETOR << " " << value << endl;
-    out.close();
+    saveInFile(3, value, FUNCAO2);
+
+    cout << "--------------------------------------" << "\n";
+
+    value = analise1_3();
+    cout << "Analise 1 - Função 3: " << value << "\n";
+    saveInFile(1, value, FUNCAO3);
+
+    value = analise2_3();
+    cout << "Analise 2 - Função 3: " << value << "\n";
+    saveInFile(2, value, FUNCAO3);
 
     value = analise3_3();
     cout << "Analise 3 - Função 3: " << value << "\n";
-    path = ANALISE_3_3;
-    out.open(path, ios::app);
-    out << TAMANHO_VETOR << " " << value << endl;
-    out.close();
+    saveInFile(3, value, FUNCAO3);
 
     // -------------------------------------------------------------------- //
 
 
-    string script_gnuplot_dp = "set encoding iso_8859_1 \n"
+    string script_gnuplot_dp =  "set encoding iso_8859_1 \n"
                                 "set grid \n"
                                 "set key top left \n"
-                                "set title 'Análise de desempenho com a função Clock' \n"
-                                "set xlabel 'Tamanho do vetor' \n"
+
+                                "set xlabel 'Análise' \n"
                                 "set ylabel 'Tempo (segundos)' \n"
-                                "# Analise 1.1 \n"
-                                "plot 'analise1_1.dat' using 1:2 notitle with linespoints ls 1 lt 8 \n"
-                                "rep 'analise1_1.dat' using 1:2:3:4 t 'Analise 1.1' with yerrorbars ls 1 lt 8 \n"
-                                "# Analise 1.2 \n"
-                                "plot 'analise1_2.dat' using 1:2 notitle with linespoints ls 1 lt 8 \n"
-                                "rep 'analise1_2.dat' using 1:2:3:4 t 'Analise 1.2' with yerrorbars ls 1 lt 8 \n"
-                                "# Analise 1.3 \n"
-                                "plot 'analise1_3.dat' using 1:2 notitle with linespoints ls 1 lt 8 \n"
-                                "rep 'analise1_3.dat' using 1:2:3:4 t 'Analise 1.3' with yerrorbars ls 1 lt 8 \n"
-                                "# Analise 2.1 \n"
-                                "plot 'analise2_1.dat' using 1:2 notitle with linespoints ls 1 lt 8 \n"
-                                "rep 'analise2_1.dat' using 1:2:3:4 t 'Analise 2.1' with yerrorbars ls 1 lt 8 \n"
-                                "# Analise 2.2 \n"
-                                "plot 'analise2_2.dat' using 1:2 notitle with linespoints ls 1 lt 8 \n"
-                                "rep 'analise2_2.dat' using 1:2:3:4 t 'Analise 2.2' with yerrorbars ls 1 lt 8 \n"
-                                "# Analise 2.3 \n"
-                                "plot 'analise2_3.dat' using 1:2 notitle with linespoints ls 1 lt 8 \n"
-                                "rep 'analise2_3.dat' using 1:2:3:4 t 'Analise 2.3' with yerrorbars ls 1 lt 8 \n"
-                                "# Analise 3.1 \n"
-                                "plot 'analise3_1.dat' using 1:2 notitle with linespoints ls 1 lt 8 \n"
-                                "rep 'analise3_1.dat' using 1:2:3:4 t 'Analise 3.1' with yerrorbars ls 1 lt 8 \n"
-                                "# Analise 3.2 \n"
-                                "plot 'analise3_2.dat' using 1:2 notitle with linespoints ls 1 lt 8 \n"
-                                "rep 'analise3_2.dat' using 1:2:3:4 t 'Analise 3.2' with yerrorbars ls 1 lt 8 \n"
-                                "# Analise 3.3 \n"
-                                "plot 'analise3_3.dat' using 1:2 notitle with linespoints ls 1 lt 8 \n"
-                                "rep 'analise3_3.dat' using 1:2:3:4 t 'Analise 3.3' with yerrorbars ls 1 lt 8 \n"
+
+
+                                "# Função 1 \n"
+                                "set title 'Tempo para execução da Função-1 em cada Análise' \n"
+                                "plot 'func1.dat' using 1:2 notitle with linespoints \n"
                                 "set terminal png \n"
-                                "set output 'grafico.png' \n"
+                                "set output 'f1.png' \n"
+                                "replot \n"
+                                "# Função 2 \n"
+                                "set title 'Tempo para execução da Função-2 em cada Análise' \n"
+                                "plot 'func2.dat' using 1:2 notitle with linespoints \n"
+                                "set terminal png \n"
+                                "set output 'f2.png' \n"
+                                "replot \n"
+                                "# Função 3 \n"
+                                "set title 'Tempo para execução da Função-3 em cada Análise' \n"
+                                "plot 'func3.dat' using 1:2 notitle with linespoints \n"
+                                "set terminal png \n"
+                                "set output 'f3.png' \n"
                                 "replot \n";
 
 
