@@ -32,9 +32,27 @@ Para criar os gráficos basta executar o gnuplot utilizando o script gnuplot des
 
 	gnuplot performance.gnuplot
 
-##  ##
+##6. Resultados ##
 
-##  ##
+Nessa seção, temos os resultados dos testes dos algoritmos BubbleSort, QuickSort e MergeSort.
+
+O programa executou sozinho no computador. Para cada função foram realizadas 3 Análises diferentes:
+1. Executar a função em uma thread e apenas um core;
+2. Executar duas instâncias da mesma função em duas threads e em cores diferentes;
+3. Executar duas instâncias da mesma função em duas threads e em um mesmo core.
+
+Dessa forma construimos 3 Gráficos, um para cada função, na qual é exibido os tempos de execução 
+de para cada uma das análises:
+
+![f1](MulticorePerformance/dados-coletados/f1.png?raw=true "Análises da Função 1")
+
+![f2](MulticorePerformance/dados-coletados/f1.png?raw=true "Análises da Função 2")
+
+![f3](MulticorePerformance/dados-coletados/f1.png?raw=true "Análises da Função 3")
+
+
+##7. Conclusão ##
+
 
 ## . Membros ##
 
