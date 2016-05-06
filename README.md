@@ -72,9 +72,9 @@ de para cada uma das análises:
 
 ## 4. Conclusão ##
 
-Esse trabalho apresentou uma análise de eficiência das diferentes possibilidades de execução de um programa em ambientes multicore que o hardware oferece.  
+Esse trabalho apresentou uma análise de eficiência das diferentes possibilidades de execução de um programa em ambientes multicore que o hardware oferece. Analisando os gráficos das analises de tempo das funções a execução da função 1 é a mais rápida em todas as análises, o que é o esperado, pois é a função mais simples. A função 2 é mais lenta na execução da primeira análise, tendo mais de 2s de duração. Na segunda análise temos que há praticamente um empate entre as funções 2 e 3 com aproximadamente 2,5s de duração. Na terceira análise a função 3 está mais rápida que a função 2 com diferença de aproximadamente 0,2s.
 
-Como podemos notar nos gráficos, ao se usar dois núcleos executando duas intâncias da mesma função, cada uma em uma thread, o tempo de execução cai pela metade, comparado a execução em um único núcleo. Dessa forma, notamos o quanto é importante no desenvolvimento de sistemas de software, o conhecimento sobre a capacidade de hardware da máquina, e aplicação de conceitos de programação distribuida.   
+Como podemos notar nos gráficos, ao se usar dois núcleos executando duas intâncias da mesma função, cada uma em uma thread, o tempo de execução cai pela metade, comparado a execução em um único núcleo. Dessa forma, notamos o quanto é importante no desenvolvimento de sistemas de software, o conhecimento sobre a capacidade de hardware da máquina, e aplicação de conceitos de programação distribuida.
 
 ## 5. Membros ##
 
