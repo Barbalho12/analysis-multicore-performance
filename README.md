@@ -54,7 +54,10 @@ Para criar os gráficos basta executar o gnuplot utilizando o script gnuplot des
 
 Nessa seção, temos os resultados dos testes dos algoritmos BubbleSort, QuickSort e MergeSort.
 
+(IMPORTANTE) Nos gráficos, no eixo das "Análises" ignore os números 1,5 e 2,5, pois não correspondem a nenhuma análise. O conteúdo foi publicado dessa forma pois não foi conseguido utilizar gráfico de barras.
+
 O programa executou sozinho no computador. Para cada função foram realizadas 3 Análises diferentes:
+
 1. Executar a função em uma thread e apenas um core;
 2. Executar duas instâncias da mesma função em duas threads e em cores diferentes;
 3. Executar duas instâncias da mesma função em duas threads e em um mesmo core.
