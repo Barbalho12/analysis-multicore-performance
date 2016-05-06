@@ -74,9 +74,7 @@ de para cada uma das análises:
 
 Esse trabalho apresentou uma análise de eficiência das diferentes possibilidades de execução de um programa em ambientes multicore que o hardware oferece.  
 
-Como podemos notar nos gráficos, ao se usar dois núcleos executando duas intâncias da mesma função, cada uma em uma thread, o tempo de execução cai pela metade. 
-
-Portanto .
+Como podemos notar nos gráficos, ao se usar dois núcleos executando duas intâncias da mesma função, cada uma em uma thread, o tempo de execução cai pela metade, comparado a execução em um único núcleo. Dessa forma, notamos o quanto é importante no desenvolvimento de sistemas de software, o conhecimento sobre a capacidade de hardware da máquina, e aplicação de conceitos de programação distribuida.   
 
 ## 5. Membros ##
 
