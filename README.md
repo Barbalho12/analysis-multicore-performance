@@ -52,7 +52,13 @@ Para criar os gráficos basta executar o gnuplot utilizando o script gnuplot des
 
 ##3. Resultados ##
 
-Nessa seção, temos os resultados dos testes dos algoritmos BubbleSort, QuickSort e MergeSort.
+onfigurações DO Hardware usado para as análises: 
+
+Configurações:
+- Intel Pentium G3250 3GHz x2
+- 4 Gb de memória RAM
+- 64 bits
+- Ubuntu
 
 (IMPORTANTE) Nos gráficos, no eixo das "Análises" ignore os números 1,5 e 2,5, pois não correspondem a nenhuma análise. O conteúdo foi publicado dessa forma pois não foi conseguido utilizar gráfico de barras.
 
